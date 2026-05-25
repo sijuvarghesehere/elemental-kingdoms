@@ -1,167 +1,81 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
+body{
 
-  min-height: 100vh;
+  min-height:100vh;
 
-  font-family: Arial, sans-serif;
+  font-family:Arial,sans-serif;
 
   background:
     linear-gradient(
-      rgba(0,0,0,0.6),
-      rgba(0,0,0,0.8)
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.85)
     ),
     url("main-bg.jpg");
 
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
+  background-position:center;
 
-  color: white;
+  color:white;
 }
 
 
-/* TOPBAR */
+/* HERO SELECT */
 
-.topbar {
+.hero-select{
 
-  width: 100%;
+  position:fixed;
+  inset:0;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display:none;
+  justify-content:center;
+  align-items:center;
 
-  padding: 18px 5%;
+  background:rgba(0,0,0,0.8);
 
-  background: rgba(0,0,0,0.5);
-
-  backdrop-filter: blur(8px);
+  z-index:999;
 }
 
-.player-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.hero-select.active{
+  display:flex;
 }
 
-.player-card img {
-  width: 60px;
-  height: 60px;
+.hero-box{
+
+  width:90%;
+  max-width:500px;
+
+  padding:40px;
+
+  border-radius:24px;
+
+  background:#11192d;
+
+  text-align:center;
 }
 
-.energy-box {
+.hero-grid{
 
-  padding: 12px 18px;
+  display:grid;
 
-  border-radius: 14px;
+  grid-template-columns:1fr 1fr;
 
-  background: rgba(255,255,255,0.1);
+  gap:16px;
 
-  font-weight: bold;
+  margin-top:30px;
 }
 
+.hero-grid button{
 
-/* GAME LAYOUT */
+  padding:18px;
 
-.game-layout {
+  border:none;
 
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 40px;
-
-  padding: 60px 5%;
-
-  flex-wrap: wrap;
-}
-
-
-/* BOARD */
-
-.board {
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 110px);
-
-  gap: 12px;
-
-  padding: 20px;
-
-  border-radius: 24px;
-
-  background: rgba(0,0,0,0.45);
-
-  backdrop-filter: blur(10px);
-}
-
-.tile {
-
-  width: 110px;
-  height: 110px;
-
-  border-radius: 20px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 3rem;
-  font-weight: bold;
-
-  cursor: pointer;
-
-  background: rgba(255,255,255,0.08);
-
-  transition: 0.2s ease;
-}
-
-.tile:hover {
-  transform: scale(1.04);
-}
-
-.player-x {
-  color: #59a6ff;
-}
-
-.player-o {
-  color: #ff7a52;
-}
-
-.turn-box {
-
-  margin-top: 20px;
-
-  text-align: center;
-
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-
-/* ABILITIES */
-
-.abilities-panel {
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 16px;
-}
-
-.abilities-panel button {
-
-  padding: 16px 26px;
-
-  border: none;
-
-  border-radius: 18px;
+  border-radius:18px;
 
   background:
     linear-gradient(
@@ -170,21 +84,184 @@ body {
       #8f69ff
     );
 
-  color: white;
+  color:white;
 
-  font-size: 1rem;
-  font-weight: bold;
+  font-weight:bold;
 
-  cursor: pointer;
-
-  transition: 0.2s ease;
+  cursor:pointer;
 }
 
-.abilities-panel button:hover {
-  transform: translateY(-2px);
+
+/* TOPBAR */
+
+.topbar{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 5%;
+
+  background:rgba(0,0,0,0.45);
 }
 
-.reset-btn {
+.player-card{
+
+  display:flex;
+  align-items:center;
+
+  gap:14px;
+}
+
+.player-card img{
+
+  width:60px;
+  height:60px;
+}
+
+.energy-box{
+
+  padding:12px 18px;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,0.08);
+}
+
+
+/* MAIN */
+
+.game-layout{
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:40px;
+
+  flex-wrap:wrap;
+
+  padding:50px 5%;
+}
+
+
+/* BOARD */
+
+.board{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,110px);
+
+  gap:12px;
+
+  padding:20px;
+
+  border-radius:24px;
+
+  background:rgba(0,0,0,0.4);
+}
+
+.tile{
+
+  width:110px;
+  height:110px;
+
+  border-radius:20px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  font-size:3rem;
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.2s ease;
+}
+
+.tile:hover{
+  transform:scale(1.03);
+}
+
+.player-x{
+  color:#59a6ff;
+}
+
+.player-o{
+  color:#ff7a52;
+}
+
+.turn-box{
+
+  margin-top:20px;
+
+  text-align:center;
+
+  font-size:1.2rem;
+  font-weight:bold;
+}
+
+
+/* ABILITIES */
+
+.abilities-panel{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:14px;
+
+  width:300px;
+}
+
+.ability-info{
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,0.08);
+}
+
+.ability-info p{
+
+  margin-top:10px;
+
+  opacity:0.8;
+
+  line-height:1.5;
+}
+
+.abilities-panel button{
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c4dff,
+      #8f69ff
+    );
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+.reset-btn{
+
   background:
     linear-gradient(
       135deg,
@@ -196,82 +273,82 @@ body {
 
 /* POPUP */
 
-.popup {
+.popup{
 
-  position: fixed;
-  inset: 0;
+  position:fixed;
+  inset:0;
 
-  display: none;
-  justify-content: center;
-  align-items: center;
+  display:none;
+  justify-content:center;
+  align-items:center;
 
-  background: rgba(0,0,0,0.75);
+  background:rgba(0,0,0,0.75);
 }
 
-.popup.active {
-  display: flex;
+.popup.active{
+  display:flex;
 }
 
-.popup-content {
+.popup-content{
 
-  width: 90%;
-  max-width: 380px;
+  width:90%;
+  max-width:380px;
 
-  padding: 40px;
+  padding:40px;
 
-  border-radius: 24px;
+  border-radius:24px;
 
-  text-align: center;
+  text-align:center;
 
-  background: #11192d;
+  background:#11192d;
 }
 
-.popup-content button {
+.popup-content button{
 
-  margin-top: 20px;
+  margin-top:20px;
 
-  padding: 14px 28px;
+  padding:14px 26px;
 
-  border: none;
+  border:none;
 
-  border-radius: 14px;
+  border-radius:14px;
 
-  background: #6c4dff;
+  background:#6c4dff;
 
-  color: white;
+  color:white;
 
-  cursor: pointer;
+  cursor:pointer;
 }
 
 
 /* MOBILE */
 
-@media(max-width: 768px) {
+@media(max-width:768px){
 
-  .game-layout {
-    flex-direction: column;
+  .game-layout{
+    flex-direction:column;
   }
 
-  .board {
-    grid-template-columns: repeat(3, 90px);
+  .board{
+    grid-template-columns:
+      repeat(3,90px);
   }
 
-  .tile {
-    width: 90px;
-    height: 90px;
+  .tile{
 
-    font-size: 2.5rem;
+    width:90px;
+    height:90px;
+
+    font-size:2.5rem;
   }
 
-  .abilities-panel {
-
-    width: 100%;
-
-    max-width: 350px;
+  .abilities-panel{
+    width:100%;
+    max-width:340px;
   }
 
-  .abilities-panel button {
-    width: 100%;
+  .hero-grid{
+    grid-template-columns:1fr;
   }
 
 }
