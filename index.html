@@ -13,7 +13,41 @@
 <body>
 
 
-  <!-- TOP BAR -->
+  <!-- HERO SELECT -->
+
+  <div class="hero-select active" id="heroSelect">
+
+    <div class="hero-box">
+
+      <h1>Select Your Hero</h1>
+
+      <div class="hero-grid">
+
+        <button onclick="selectHero('Arc Guardian')">
+          Arc Guardian
+        </button>
+
+        <button onclick="selectHero('Ember Sentinel')">
+          Ember Sentinel
+        </button>
+
+        <button onclick="selectHero('Nexus Wraith')">
+          Nexus Wraith
+        </button>
+
+        <button onclick="selectHero('Frost Monarch')">
+          Frost Monarch
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- TOPBAR -->
 
   <header class="topbar">
 
@@ -22,18 +56,25 @@
       <img src="riftelixir-logo.png" alt="logo">
 
       <div>
+
         <h2>SIJU</h2>
-        <p>Arc Guardian</p>
+
+        <p id="selectedHero">
+          No Hero Selected
+        </p>
+
       </div>
 
     </div>
 
 
     <div class="energy-box">
-      Energy: <span id="energy">5</span>
+      Energy:
+      <span id="energy">5</span>
     </div>
 
   </header>
+
 
 
   <!-- MAIN GAME -->
@@ -69,9 +110,23 @@
     </section>
 
 
+
     <!-- ABILITIES -->
 
     <section class="abilities-panel">
+
+      <div class="ability-info">
+
+        <h2 id="abilityTitle">
+          Hero Ability
+        </h2>
+
+        <p id="abilityDescription">
+          Select a hero to begin.
+        </p>
+
+      </div>
+
 
       <button onclick="activateAbility('shield')">
         Shield
@@ -98,6 +153,7 @@
 
 
   </main>
+
 
 
   <!-- WIN POPUP -->
