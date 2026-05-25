@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Arc Guardian",
+    "role": "Defender",
+    "element": "Celestial"
+  },
+  {
+    "name": "Ember Sentinel",
+    "role": "Aggressor",
+    "element": "Fire"
+  },
+  {
+    "name": "Nexus Wraith",
+    "role": "Trickster",
+    "element": "Void"
+  },
+  {
+    "name": "Frost Monarch",
+    "role": "Control",
+    "element": "Frost"
+  }
+]

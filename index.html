@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elemental Kingdoms</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+  <!-- TOP BAR -->
+
+  <header class="topbar">
+
+    <div class="player-card">
+
+      <img src="riftelixir-logo.png" alt="logo">
+
+      <div>
+        <h2>SIJU</h2>
+        <p>Arc Guardian</p>
+      </div>
+
+    </div>
+
+
+    <div class="energy-box">
+      Energy: <span id="energy">5</span>
+    </div>
+
+  </header>
+
+
+  <!-- MAIN GAME -->
+
+  <main class="game-layout">
+
+
+    <!-- BOARD -->
+
+    <section class="board-section">
+
+      <div class="board" id="board">
+
+        <div class="tile" data-index="0"></div>
+        <div class="tile" data-index="1"></div>
+        <div class="tile" data-index="2"></div>
+
+        <div class="tile" data-index="3"></div>
+        <div class="tile" data-index="4"></div>
+        <div class="tile" data-index="5"></div>
+
+        <div class="tile" data-index="6"></div>
+        <div class="tile" data-index="7"></div>
+        <div class="tile" data-index="8"></div>
+
+      </div>
+
+
+      <div class="turn-box" id="turnText">
+        Player X Turn
+      </div>
+
+    </section>
+
+
+    <!-- ABILITIES -->
+
+    <section class="abilities-panel">
+
+      <button onclick="activateAbility('shield')">
+        Shield
+      </button>
+
+      <button onclick="activateAbility('freeze')">
+        Freeze
+      </button>
+
+      <button onclick="activateAbility('fire')">
+        Flame Burst
+      </button>
+
+      <button onclick="activateAbility('teleport')">
+        Teleport
+      </button>
+
+
+      <button class="reset-btn" onclick="resetGame()">
+        Reset Match
+      </button>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- WIN POPUP -->
+
+  <div class="popup" id="popup">
+
+    <div class="popup-content">
+
+      <h2 id="popupText">
+        Player X Wins!
+      </h2>
+
+      <button onclick="resetGame()">
+        Play Again
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script src="game.js"></script>
+
+</body>
+</html>
