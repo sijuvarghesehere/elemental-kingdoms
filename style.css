@@ -6,22 +6,23 @@
 
 body{
 
-  min-height:100vh;
-
   font-family:Arial,sans-serif;
+
+  color:white;
+
+  min-height:100vh;
 
   background:
     linear-gradient(
-      rgba(0,0,0,0.65),
-      rgba(0,0,0,0.85)
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.8)
     ),
     url("main-bg.jpg");
 
   background-size:cover;
   background-position:center;
-
-  color:white;
 }
+
 
 
 /* HERO SELECT */
@@ -35,7 +36,7 @@ body{
   justify-content:center;
   align-items:center;
 
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
 
   z-index:999;
 }
@@ -47,15 +48,20 @@ body{
 .hero-box{
 
   width:90%;
-  max-width:500px;
+  max-width:550px;
 
-  padding:40px;
+  padding:30px;
 
   border-radius:24px;
 
-  background:#11192d;
+  background:#10182c;
+}
+
+.hero-box h1{
 
   text-align:center;
+
+  margin-bottom:25px;
 }
 
 .hero-grid{
@@ -65,87 +71,163 @@ body{
   grid-template-columns:1fr 1fr;
 
   gap:16px;
-
-  margin-top:30px;
 }
 
 .hero-grid button{
-
-  padding:18px;
 
   border:none;
 
   border-radius:18px;
 
+  padding:20px;
+
   background:
     linear-gradient(
       135deg,
-      #6c4dff,
+      #6848ff,
       #8f69ff
     );
 
   color:white;
 
-  font-weight:bold;
-
   cursor:pointer;
 }
 
+.hero-grid img{
 
-/* TOPBAR */
+  width:90px;
+  height:90px;
 
-.topbar{
+  object-fit:cover;
+
+  margin-bottom:10px;
+}
+
+
+
+/* HEADER */
+
+.battle-header{
 
   display:flex;
   justify-content:space-between;
   align-items:center;
 
   padding:20px 5%;
-
-  background:rgba(0,0,0,0.45);
 }
 
-.player-card{
+.player-side,
+.enemy-side{
 
   display:flex;
   align-items:center;
 
-  gap:14px;
+  gap:12px;
 }
 
-.player-card img{
+.player-side img,
+.enemy-side img{
 
-  width:60px;
-  height:60px;
+  width:70px;
+  height:70px;
+
+  border-radius:18px;
 }
 
-.energy-box{
+.middle-turn{
 
-  padding:12px 18px;
+  text-align:center;
+}
 
-  border-radius:14px;
+.middle-turn h1{
 
-  background:rgba(255,255,255,0.08);
+  font-size:2rem;
+
+  color:#ffd56a;
 }
 
 
-/* MAIN */
+
+/* ENERGY */
+
+.energy-wrapper{
+
+  width:90%;
+  max-width:600px;
+
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+
+  gap:15px;
+}
+
+.energy-bar{
+
+  flex:1;
+
+  height:24px;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  background:#1b1f35;
+}
+
+.energy-fill{
+
+  width:50%;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1ea7ff,
+      #55d2ff
+    );
+}
+
+
+
+/* GAME */
 
 .game-layout{
 
+  padding:20px;
+}
+
+.board-area{
+
   display:flex;
-  justify-content:center;
+  flex-direction:column;
   align-items:center;
 
-  gap:40px;
-
-  flex-wrap:wrap;
-
-  padding:50px 5%;
+  gap:20px;
 }
 
 
+
 /* BOARD */
+
+.board-frame{
+
+  padding:20px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #5c4a35,
+      #32271d
+    );
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.5);
+}
 
 .board{
 
@@ -154,13 +236,7 @@ body{
   grid-template-columns:
     repeat(3,110px);
 
-  gap:12px;
-
-  padding:20px;
-
-  border-radius:24px;
-
-  background:rgba(0,0,0,0.4);
+  gap:8px;
 }
 
 .tile{
@@ -168,107 +244,173 @@ body{
   width:110px;
   height:110px;
 
-  border-radius:20px;
+  background:#c9b08a;
+
+  border:4px solid #7f6548;
 
   display:flex;
   justify-content:center;
   align-items:center;
 
-  background:
-    rgba(255,255,255,0.08);
-
   font-size:3rem;
   font-weight:bold;
 
   cursor:pointer;
-
-  transition:0.2s ease;
-}
-
-.tile:hover{
-  transform:scale(1.03);
 }
 
 .player-x{
-  color:#59a6ff;
+
+  color:#2e9fff;
+
+  text-shadow:
+    0 0 10px #2e9fff;
 }
 
 .player-o{
-  color:#ff7a52;
+
+  color:#ff5e42;
+
+  text-shadow:
+    0 0 10px #ff5e42;
 }
 
-.turn-box{
-
-  margin-top:20px;
-
-  text-align:center;
-
-  font-size:1.2rem;
-  font-weight:bold;
-}
 
 
 /* ABILITIES */
 
-.abilities-panel{
+.abilities{
 
   display:flex;
-  flex-direction:column;
+  gap:12px;
 
-  gap:14px;
-
-  width:300px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.ability-info{
+.abilities button{
 
-  padding:20px;
+  position:relative;
 
-  border-radius:20px;
+  width:95px;
 
-  background:rgba(255,255,255,0.08);
-}
-
-.ability-info p{
-
-  margin-top:10px;
-
-  opacity:0.8;
-
-  line-height:1.5;
-}
-
-.abilities-panel button{
-
-  padding:16px;
+  padding:10px;
 
   border:none;
 
-  border-radius:16px;
+  border-radius:20px;
+
+  background:#12192e;
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.abilities img{
+
+  width:55px;
+  height:55px;
+
+  object-fit:contain;
+}
+
+.abilities span{
+
+  display:block;
+
+  margin-top:5px;
+}
+
+.abilities small{
+
+  position:absolute;
+
+  top:8px;
+  right:8px;
+
+  width:24px;
+  height:24px;
+
+  border-radius:50%;
+
+  background:#6b46ff;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+
+/* HERO CARD */
+
+.hero-card{
+
+  width:100%;
+  max-width:700px;
+
+  display:flex;
+
+  gap:20px;
+
+  padding:20px;
+
+  border-radius:24px;
+
+  background:
+    rgba(0,0,0,0.5);
+}
+
+.hero-card img{
+
+  width:160px;
+  height:160px;
+
+  border-radius:20px;
+}
+
+.hero-info{
+
+  flex:1;
+}
+
+.rarity{
+
+  color:#b16cff;
+
+  margin:8px 0;
+}
+
+
+
+/* PLAY BUTTON */
+
+.play-button{
+
+  width:100%;
+  max-width:500px;
+
+  padding:22px;
+
+  border:none;
+
+  border-radius:24px;
 
   background:
     linear-gradient(
       135deg,
-      #6c4dff,
-      #8f69ff
+      #ffcf4d,
+      #ffb300
     );
 
-  color:white;
+  color:black;
 
+  font-size:1.5rem;
   font-weight:bold;
 
   cursor:pointer;
 }
 
-.reset-btn{
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff7a52,
-      #ff4f7c
-    ) !important;
-}
 
 
 /* POPUP */
@@ -282,7 +424,7 @@ body{
   justify-content:center;
   align-items:center;
 
-  background:rgba(0,0,0,0.75);
+  background:rgba(0,0,0,0.8);
 }
 
 .popup.active{
@@ -292,7 +434,7 @@ body{
 .popup-content{
 
   width:90%;
-  max-width:380px;
+  max-width:400px;
 
   padding:40px;
 
@@ -300,36 +442,39 @@ body{
 
   text-align:center;
 
-  background:#11192d;
+  background:#10182c;
 }
 
 .popup-content button{
 
   margin-top:20px;
 
-  padding:14px 26px;
+  padding:16px 24px;
 
   border:none;
 
-  border-radius:14px;
+  border-radius:18px;
 
-  background:#6c4dff;
+  background:#6b46ff;
 
   color:white;
-
-  cursor:pointer;
 }
+
 
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-  .game-layout{
+  .battle-header{
+
     flex-direction:column;
+
+    gap:20px;
   }
 
   .board{
+
     grid-template-columns:
       repeat(3,90px);
   }
@@ -342,13 +487,16 @@ body{
     font-size:2.5rem;
   }
 
-  .abilities-panel{
-    width:100%;
-    max-width:340px;
-  }
-
   .hero-grid{
     grid-template-columns:1fr;
+  }
+
+  .hero-card{
+
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
   }
 
 }
