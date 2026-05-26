@@ -24,19 +24,31 @@
       <div class="hero-grid">
 
         <button onclick="selectHero('Arc Guardian')">
-          Arc Guardian
+
+          <img src="arc-guardian.png">
+
+          <span>Arc Guardian</span>
+
         </button>
 
         <button onclick="selectHero('Ember Sentinel')">
-          Ember Sentinel
+
+          <img src="ember-sentinel.png">
+
+          <span>Ember Sentinel</span>
+
         </button>
 
         <button onclick="selectHero('Nexus Wraith')">
-          Nexus Wraith
+
+          <span>Nexus Wraith</span>
+
         </button>
 
         <button onclick="selectHero('Frost Monarch')">
-          Frost Monarch
+
+          <span>Frost Monarch</span>
+
         </button>
 
       </div>
@@ -47,20 +59,23 @@
 
 
 
-  <!-- TOPBAR -->
+  <!-- TOP HEADER -->
 
-  <header class="topbar">
+  <header class="battle-header">
 
-    <div class="player-card">
+    <div class="player-side">
 
-      <img src="riftelixir-logo.png" alt="logo">
+      <img
+        src="arc-guardian.png"
+        id="playerHero"
+      >
 
       <div>
 
         <h2>SIJU</h2>
 
         <p id="selectedHero">
-          No Hero Selected
+          Arc Guardian
         </p>
 
       </div>
@@ -68,106 +83,216 @@
     </div>
 
 
-    <div class="energy-box">
-      Energy:
-      <span id="energy">5</span>
+    <div class="middle-turn">
+
+      <p>YOUR TURN</p>
+
+      <h1 id="timer">
+        00:18
+      </h1>
+
+    </div>
+
+
+    <div class="enemy-side">
+
+      <img
+        src="ember-sentinel.png"
+      >
+
+      <div>
+
+        <h2>SHADOWX</h2>
+
+        <p>Nexus Wraith</p>
+
+      </div>
+
     </div>
 
   </header>
 
 
 
-  <!-- MAIN GAME -->
+  <!-- ENERGY -->
+
+  <div class="energy-wrapper">
+
+    <div class="energy-bar">
+
+      <div
+        class="energy-fill"
+        id="energyFill"
+      ></div>
+
+    </div>
+
+    <span id="energyText">
+      5/10
+    </span>
+
+  </div>
+
+
+
+  <!-- GAME -->
 
   <main class="game-layout">
 
 
     <!-- BOARD -->
 
-    <section class="board-section">
+    <section class="board-area">
 
-      <div class="board" id="board">
+      <div class="board-frame">
 
-        <div class="tile" data-index="0"></div>
-        <div class="tile" data-index="1"></div>
-        <div class="tile" data-index="2"></div>
+        <div class="board" id="board">
 
-        <div class="tile" data-index="3"></div>
-        <div class="tile" data-index="4"></div>
-        <div class="tile" data-index="5"></div>
+          <div class="tile" data-index="0"></div>
+          <div class="tile" data-index="1"></div>
+          <div class="tile" data-index="2"></div>
 
-        <div class="tile" data-index="6"></div>
-        <div class="tile" data-index="7"></div>
-        <div class="tile" data-index="8"></div>
+          <div class="tile" data-index="3"></div>
+          <div class="tile" data-index="4"></div>
+          <div class="tile" data-index="5"></div>
+
+          <div class="tile" data-index="6"></div>
+          <div class="tile" data-index="7"></div>
+          <div class="tile" data-index="8"></div>
+
+        </div>
 
       </div>
 
 
-      <div class="turn-box" id="turnText">
-        Player X Turn
+      <!-- ABILITIES -->
+
+      <div class="abilities">
+
+        <button onclick="activateAbility('shield')">
+
+          <img src="shield-icon.png">
+
+          <span>Shield</span>
+
+          <small>2</small>
+
+        </button>
+
+
+        <button onclick="activateAbility('fire')">
+
+          <img src="fire-icon.png">
+
+          <span>Fire</span>
+
+          <small>2</small>
+
+        </button>
+
+
+        <button onclick="activateAbility('corrupt')">
+
+          <img src="corrupt-icon.png">
+
+          <span>Corrupt</span>
+
+          <small>3</small>
+
+        </button>
+
+
+        <button onclick="activateAbility('freeze')">
+
+          <img src="freeze-icon.png">
+
+          <span>Freeze</span>
+
+          <small>2</small>
+
+        </button>
+
+
+        <button onclick="activateAbility('teleport')">
+
+          <img src="teleport-icon.png">
+
+          <span>Teleport</span>
+
+          <small>3</small>
+
+        </button>
+
       </div>
+
+
+      <!-- HERO CARD -->
+
+      <div class="hero-card">
+
+        <img
+          src="arc-guardian.png"
+          id="heroPortrait"
+        >
+
+        <div class="hero-info">
+
+          <h2 id="heroName">
+            ARC GUARDIAN
+          </h2>
+
+          <p class="rarity">
+            EPIC
+          </p>
+
+          <h3 id="abilityTitle">
+            Divine Shield
+          </h3>
+
+          <p id="abilityDescription">
+
+            Protect one tile from enemy abilities.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- PLAY BUTTON -->
+
+      <button
+        class="play-button"
+        onclick="resetGame()"
+      >
+
+        PLAY AGAIN
+
+      </button>
 
     </section>
-
-
-
-    <!-- ABILITIES -->
-
-    <section class="abilities-panel">
-
-      <div class="ability-info">
-
-        <h2 id="abilityTitle">
-          Hero Ability
-        </h2>
-
-        <p id="abilityDescription">
-          Select a hero to begin.
-        </p>
-
-      </div>
-
-
-      <button onclick="activateAbility('shield')">
-        Shield
-      </button>
-
-      <button onclick="activateAbility('freeze')">
-        Freeze
-      </button>
-
-      <button onclick="activateAbility('fire')">
-        Flame Burst
-      </button>
-
-      <button onclick="activateAbility('teleport')">
-        Teleport
-      </button>
-
-
-      <button class="reset-btn" onclick="resetGame()">
-        Reset Match
-      </button>
-
-    </section>
-
 
   </main>
 
 
 
-  <!-- WIN POPUP -->
+  <!-- POPUP -->
 
   <div class="popup" id="popup">
 
     <div class="popup-content">
 
-      <h2 id="popupText">
-        Player X Wins!
-      </h2>
+      <h1 id="popupText">
+
+        PLAYER X WINS
+
+      </h1>
 
       <button onclick="resetGame()">
-        Play Again
+
+        PLAY AGAIN
+
       </button>
 
     </div>
